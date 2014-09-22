@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MovieTextAlertPostgres</title>
+  <title>Movie Text Alert</title>
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -10,7 +10,7 @@
 	 	<script src="/assets/movieApp/app.js"></script>
 	<% end %>
 </head>
-<body ng-app="moviepull">
+<body ng-app="movieApp">
 <% if current_user %>
 	<%= link_to "Log out", session_path, method: :delete, class: "btn btn-success" %>
 <% end %>
