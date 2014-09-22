@@ -25,9 +25,14 @@ ActiveRecord::Schema.define(version: 20140922012844) do
   end
 
   create_table "selections", force: true do |t|
+    t.integer  "users_id"
+    t.integer  "movies_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "selections", ["movies_id"], name: "index_selections_on_movies_id", using: :btree
+  add_index "selections", ["users_id"], name: "index_selections_on_users_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"

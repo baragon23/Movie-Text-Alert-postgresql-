@@ -3,18 +3,21 @@
 <head>
   <title>Movie Text Alert</title>
   <%= stylesheet_link_tag    "application", media: "all" %>
-  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  	<% if current_user %>
-		<script src="http://api.themoviedb.org/3/movie/upcoming?api_key=d0a8b0361581f05b502a995a7cf2e923"></script>
-	 	<script src="/assets/movieApp/app.js"></script>
-	<% end %>
 </head>
 <body ng-app="movieApp">
-<% if current_user %>
-	<%= link_to "Log out", session_path, method: :delete, class: "btn btn-success" %>
-<% end %>
-<%= yield %>
+	<% if current_user %>
+		Welcome, <%= current_user.name %> (<%= current_user.email  %>) --
+		<%= link_to "Log out", session_path, method: :delete, class: "btn btn-success" %>
+	<% end %>
 
+	<%= yield %>
+
+	<%= javascript_include_tag "application" %>
+<!-- 	  	<% if current_user %>
+		 	<script src="/assets/movieApp/movieApp.js"></script>
+		 	<script src="/assets/movieApp/movieService.js"></script>
+		 	<script src="/assets/movieApp/movieCtrl.js"></script>
+		<% end %> -->
 </body>
 </html>
