@@ -5,7 +5,7 @@
 <h2>Sign Up</h1>
 <%#= render 'form' %>
 
-<div id="sidr-signup">
+<div id="signUpModal" class="reveal-modal" data-reveal>
 	<p>Sign Up</p>
 	<%= form_for @user do |f| %>
 		<%= f.text_field :name, placeholder: "Name" %><br />
@@ -15,9 +15,10 @@
 		<%= f.text_field :phone, placeholder: "Phone Number" %><br />
 		<%= f.submit "Submit" %>
 	<% end %>
+	<a class="close-reveal-modal">×</a>
 </div>
 
-<div id="sidr-login">
+<div id="loginModal" class="reveal-modal" data-reveal>
 	<p>Log In</p>
 	<%= form_for @user, {url: session_path} do |f| %>
 		<%= f.text_field :email, placeholder: "your email address.." %><br />
@@ -25,3 +26,7 @@
 		<%= f.submit "Log In" %>
 	<% end %>
 </div>
+
+<a href="#" data-reveal-id="signUpModal" class="radius button">Sign Up</a>
+<a href="#" data-reveal-id="loginModal" class="radius button">Login</a>
+

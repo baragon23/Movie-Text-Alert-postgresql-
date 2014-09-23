@@ -3,21 +3,23 @@
 <head>
   <title>Movie Text Alert</title>
   <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "vendor/modernizr" %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body ng-app="movieApp">
-	<% if current_user %>
-		Welcome, <%= current_user.name %> (<%= current_user.email  %>) --
-		<%= link_to "Log out", session_path, method: :delete, class: "btn btn-success" %>
-	<% end %>
+  <% if current_user %>
+    Welcome, <%= current_user.name %> (<%= current_user.email  %>) --
+    <%= link_to "Log out", session_path, method: :delete, class: "btn btn-success" %>
+  <% end %>
 
-	<%= yield %>
+  <%= yield %>
 
-	<%= javascript_include_tag "application" %>
-<!-- 	  	<% if current_user %>
-		 	<script src="/assets/movieApp/movieApp.js"></script>
-		 	<script src="/assets/movieApp/movieService.js"></script>
-		 	<script src="/assets/movieApp/movieCtrl.js"></script>
-		<% end %> -->
+  <%= javascript_include_tag "application" %>
+<!--      <% if current_user %>
+      <script src="/assets/movieApp/movieApp.js"></script>
+      <script src="/assets/movieApp/movieService.js"></script>
+      <script src="/assets/movieApp/movieCtrl.js"></script>
+    <% end %> -->
 </body>
 </html>
