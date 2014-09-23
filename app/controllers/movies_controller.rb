@@ -4,18 +4,7 @@ class MoviesController < ApplicationController
 
 	def index
 		@movies = Movie.where(user_id: current_user.id)
-		# @selections = Selection.all
-
-		# returns the records from the selections table which are tied to 
-		# the current logged in user through their id
-		# @user_selections = @selections.where(current_user.id)
-
-		# @user_movies = Movie.where(id: IN @user_selections)
-
-		#@user_movies = @user_selections.each { | movie | return movie.movies_id }
-
 		respond_with @movies, each_serializer: MovieSerializer
-		# respond_with @user_movies, each_serializer: MovieSerializer
 	end
 
 	def create
