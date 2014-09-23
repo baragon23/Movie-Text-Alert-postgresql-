@@ -1,4 +1,8 @@
 class SelectionsController < ApplicationController
+	def index
+		@selections = Selection.all
+	end
+
 	def new
 		@selection = Selection.new
 	end

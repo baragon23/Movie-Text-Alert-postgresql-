@@ -53,20 +53,19 @@ movieApp.controller('MovieController', [ '$http', '$scope', 'Movie', function($h
 	Movie.query(function(json) {
 		$scope.savedMovies = json;
 	});
-
+	//$scope.user_id = "";
 	$scope.addMovie = function(movie) {
-		//console.log($scope.newMovie);
-
 		$scope.newMovie.title = movie.title;
 		$scope.newMovie.poster = movie.poster;
 		$scope.newMovie.release_date = movie.release_date;
+		$scope.newMovie.user_id = movie.user_id;
 
 		//now save the movie to the database
 		$scope.newMovie.$save(function() {
 			$scope.savedMovies.push($scope.newMovie);
 			$scope.newMovie = new Movie();
 			//reset the form
-			$scope.postForm.$pristine = true;
+			//$scope.postForm.$pristine = true;
 		});
 	};
 

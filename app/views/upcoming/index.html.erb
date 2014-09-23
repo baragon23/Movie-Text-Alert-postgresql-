@@ -1,14 +1,15 @@
 <h1>Welcome to Movie Text Alert Correct Page</h1>
-
+	
 	<div ng-controller="MovieController">
 		<div style="border: 1px solid black">
 			<h3>Your Movie List</h3>
+
 			<ul>
 				<li ng-repeat="movie in savedMovies">
 					{{ movie.title }}
 					{{ movie.release_date }}
 
-					<a ng-click="destroyMovie( movie )" class="button tiny round alert">
+					<a ng-click="destroyMovie( movie )" class="delete">
 						X
 					</a>
 				</li>
@@ -20,6 +21,7 @@
 			<p><img src="{{movie.poster}}" /></p>
 			<p><strong>Release Date:</strong> {{ movie.release_date }}</p>
 			<form ng-submit="addMovie(movie)" name="movieForm">
+				<input ng-model="user_id" type="hidden" ng-init="movie.user_id=<%= current_user.id %>" />
 				<input type="submit">Alert Me</input>
 			</form>
 

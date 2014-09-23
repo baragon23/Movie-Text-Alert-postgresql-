@@ -24,5 +24,12 @@ img {
 }
 
 .movies:hover {
-	border: 2px solid red;
+	border: 2px solid orange;
+}
+
+.delete {
+	cursor: pointer;
+	background-color: red;
+	padding: 4px;
+	border-radius: 3px;
 }
