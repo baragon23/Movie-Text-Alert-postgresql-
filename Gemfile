@@ -45,4 +45,4 @@ gem 'twilio-ruby', '~> 3.12'
 
 gem 'foundation-rails'
 
-
+gem 'sidekiq'

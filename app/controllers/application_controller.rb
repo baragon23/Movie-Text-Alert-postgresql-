@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   	@current_user ||= User.where(id: session[:user_id]).first
   end
 
-  	def default_serializer_options
+  def default_serializer_options
 		{ root: false }
 	end
 end

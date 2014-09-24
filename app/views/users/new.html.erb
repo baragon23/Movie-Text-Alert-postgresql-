@@ -1,9 +1,7 @@
+<h1>Movie Text Alert</h1>
 
-
-<h1>Movie Text Alert Landing Page</h1>
-
-<h2>Sign Up</h1>
-<%#= render 'form' %>
+<h3>Movie Text Alert lets you choose which upcoming new movies you would like to be notified about on their release day in theaters.</h3>
+<p>We do this by sending a single text message to your phone.</p>
 
 <div id="signUpModal" class="reveal-modal" data-reveal>
 	<p>Sign Up</p>
@@ -25,6 +23,7 @@
 		<%= f.password_field :password, placeholder: "password ..." %><br />
 		<%= f.submit "Log In" %>
 	<% end %>
+	<a class="close-reveal-modal">×</a>
 </div>
 
 <a href="#" data-reveal-id="signUpModal" class="radius button">Sign Up</a>
