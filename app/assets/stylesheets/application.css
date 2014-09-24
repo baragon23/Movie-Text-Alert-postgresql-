@@ -12,19 +12,30 @@
  *= require_tree .
  */
 
-
 img {
 	height: 300px;
 }
 
+.movietext {
+	width: 500px;
+	margin-top: 3em !important;
+	margin: 0 auto;
+}
+
+.pagebgblk {
+	width: 100%;
+	height: 100%;
+	background-color: black;
+}
+
 .movies {
 	display: inline-block;
-	margin: 10px;
+	margin: 0px 20px 10px 0px;
 	width: 200px;
 }
 
 .movies:hover {
-	border: 2px solid orange;
+	background-color: #F0C2B2;
 }
 
 .delete {
@@ -32,8 +43,20 @@ img {
 	background-color: red;
 	padding: 4px;
 	border-radius: 3px;
+	color: white;
 }
 
 p {
 	font-size: 14px;
 }
+
+form {
+	margin: 0px;
+}
+
+footer {
+	background-color: black;
+	height: 40px;
+	color: white;
+}
+

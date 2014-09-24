@@ -8,18 +8,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body ng-app="movieApp">
+
   <% if current_user %>
-    Welcome, <%= current_user.name %> (<%= current_user.email  %>) --
-    <%= link_to "Log out", session_path, method: :delete, class: "btn btn-success" %>
+    <div class="text-right">
+      Welcome, <%= current_user.name %> (<%= current_user.email  %>) --
+      <%= link_to "Log out", session_path, method: :delete, class: "btn btn-success" %>
+    </div>
   <% end %>
 
   <%= yield %>
 
   <%= javascript_include_tag "application" %>
-<!--      <% if current_user %>
-      <script src="/assets/movieApp/movieApp.js"></script>
-      <script src="/assets/movieApp/movieService.js"></script>
-      <script src="/assets/movieApp/movieCtrl.js"></script>
-    <% end %> -->
+
 </body>
 </html>

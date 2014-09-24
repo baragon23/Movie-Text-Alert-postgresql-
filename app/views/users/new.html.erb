@@ -1,31 +1,38 @@
-<h1>Movie Text Alert</h1>
+<div class="pagebgblk">
+	<div id="homepage-container" class="row">	
+		
+		<div class="text-center">
+			<h1 id="homeH1">Movie Text Alert</h1>
 
-<h3>Movie Text Alert lets you choose which upcoming new movies you would like to be notified about on their release day in theaters.</h3>
-<p>We do this by sending a single text message to your phone.</p>
+			<h3 class="movietext">Movie Text Alert lets you choose which upcoming new movies you would like to be notified about on their release day in theaters.</h3>
+			<p>We do this by sending a single text message to your phone.</p>
 
-<div id="signUpModal" class="reveal-modal" data-reveal>
-	<p>Sign Up</p>
-	<%= form_for @user do |f| %>
-		<%= f.text_field :name, placeholder: "Name" %><br />
-		<%= f.text_field :email, placeholder: "Email" %><br />
-		<%= f.password_field :password, placeholder: "Password" %><br />
-		<%= f.password_field :password_confirmation, placeholder: "Password Confirmation" %><br />
-		<%= f.text_field :phone, placeholder: "Phone Number" %><br />
-		<%= f.submit "Submit" %>
-	<% end %>
-	<a class="close-reveal-modal">×</a>
+			<div id="signUpModal" class="reveal-modal" data-reveal>
+				<p>Sign Up</p>
+				<%= form_for @user do |f| %>
+					<%= f.text_field :name, placeholder: "Name" %><br />
+					<%= f.text_field :email, placeholder: "Email" %><br />
+					<%= f.password_field :password, placeholder: "Password" %><br />
+					<%= f.password_field :password_confirmation, placeholder: "Password Confirmation" %><br />
+					<%= f.text_field :phone, placeholder: "Phone Number" %><br />
+					<%= f.submit "Submit", class: 'radius button' %>
+				<% end %>
+				<a class="close-reveal-modal">×</a>
+			</div>
+
+			<div id="loginModal" class="reveal-modal" data-reveal>
+				<p>Log In</p>
+				<%= form_for @user, {url: session_path} do |f| %>
+					<%= f.text_field :email, placeholder: "your email address.." %><br />
+					<%= f.password_field :password, placeholder: "password ..." %><br />
+					<%= f.submit "Log In", class: 'radius button' %>
+				<% end %>
+				<a class="close-reveal-modal">×</a>
+			</div>
+
+			<a href="#" data-reveal-id="signUpModal" class="radius button alert">Sign Up</a>
+			<a href="#" data-reveal-id="loginModal" class="radius button alert">Login</a>
+		</div>
+
+	</div>
 </div>
-
-<div id="loginModal" class="reveal-modal" data-reveal>
-	<p>Log In</p>
-	<%= form_for @user, {url: session_path} do |f| %>
-		<%= f.text_field :email, placeholder: "your email address.." %><br />
-		<%= f.password_field :password, placeholder: "password ..." %><br />
-		<%= f.submit "Log In" %>
-	<% end %>
-	<a class="close-reveal-modal">×</a>
-</div>
-
-<a href="#" data-reveal-id="signUpModal" class="radius button">Sign Up</a>
-<a href="#" data-reveal-id="loginModal" class="radius button">Login</a>
-

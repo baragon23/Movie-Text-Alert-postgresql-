@@ -1,14 +1,17 @@
-<h1>Welcome to Movie Text Alert Correct Page</h1>
-	
-	<div ng-controller="MovieController">
-		<div style="border: 1px solid black">
-			<h3>Your Movie List</h3>
+<div ng-controller="MovieController">
+	<div class="row">
+		<h1 class="text-center">Welcome to Movie Text Alert</h1>
+		<p><strong>Instructions:</strong> Click the Alert Me button in order to add a movie
+			to your list. We will text you on the release day of that movie to the phone 
+			number you provided during Sign Up.</p>
+
+		<div style="border: 1px solid black" class="small-2 columns">
+			<h3>Your Saved Movie List</h3>
 
 			<ul>
-				<li ng-repeat="movie in savedMovies">
-					{{ movie.title }}
+				<li ng-repeat="movie in savedMovies" class="movie-list">
+					{{ movie.title }} <br />
 					{{ movie.release_date }}
-
 					<a ng-click="destroyMovie( movie )" class="delete">
 						X
 					</a>
@@ -16,14 +19,20 @@
 			</ul>
 		</div>
 
-		<div class="movies" ng-repeat="movie in movies">
-			<h3>{{ movie.title }}</h3>
-			<p><img src="{{movie.poster}}" /></p>
-			<p><strong>Release Date:</strong> {{ movie.release_date }}</p>
-			<form ng-submit="addMovie(movie)" name="movieForm">
-				<input ng-model="user_id" type="hidden" ng-init="movie.user_id=<%= current_user.id %>" />
-				<input type="submit">Alert Me</input>
-			</form>
+		<div class="small-10 columns">
+			<div class="movies" ng-repeat="movie in movies">
+				<h4>{{ movie.title }}</h4>
+				<p><img src="{{movie.poster}}" /></p>
+				<p><strong>Release Date:</strong> {{ movie.release_date }}</p>
+				<form ng-submit="addMovie(movie)" name="movieForm">
+					<input ng-model="user_id" type="hidden" ng-init="movie.user_id=<%= current_user.id %>" />
+					<input type="submit" class="button tiny" value="Alert Me" />
+				</form>
 
+			</div>
 		</div>
+
 	</div>
+</div>
+
+<%= render 'partials/footer' %>
