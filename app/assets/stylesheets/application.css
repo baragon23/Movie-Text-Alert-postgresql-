@@ -41,7 +41,7 @@ img {
 .delete {
 	cursor: pointer;
 	background-color: red;
-	padding: 4px;
+	padding: 4px 9px;
 	border-radius: 3px;
 	color: white;
 }

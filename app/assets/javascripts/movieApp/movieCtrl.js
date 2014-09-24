@@ -1,4 +1,6 @@
 
+jQuery.getScript('youtube_api_call.js');
+
 movieApp.controller('MovieController', [ '$http', '$scope', 'Movie', function($http, $scope, Movie) {
 
 	var apiURL = "http://api.themoviedb.org/3/movie/upcoming?api_key=d0a8b0361581f05b502a995a7cf2e923";
@@ -17,14 +19,19 @@ movieApp.controller('MovieController', [ '$http', '$scope', 'Movie', function($h
 					release_date: ''
 				};
 
+				//assign title
 				movieObj.title = data.results[i].title;
 				
+				//assign poster image
+				//no image available for the movie so we use a default image
 				if (data.results[i].poster_path == null) {
 					movieObj.poster = "/assets/no-image.png";
 				}
 				else {
 					movieObj.poster = poster_directory + data.results[i].poster_path;
 				}
+
+				//assign release date
 				movieObj.release_date = data.results[i].release_date;
 				sorted_movie_array.push(movieObj);
 			}
@@ -36,9 +43,7 @@ movieApp.controller('MovieController', [ '$http', '$scope', 'Movie', function($h
 			});
 
 			$scope.movies = sorted_movie_array;
-			//console.log(sorted_movie_array);
-			//console.log($scope.movies.length);
-			//console.log(data.results);
+
 		})
 		.error(function(data, status) {
 			console.log(status);
