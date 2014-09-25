@@ -1,9 +1,11 @@
 source 'https://rubygems.org'
 
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
+
+ruby "2.1.2"
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -47,6 +49,6 @@ gem 'twilio-ruby', '~> 3.12'
 
 gem 'foundation-rails'
 
-gem 'sidekiq'
-
 gem 'whenever', :require => false
+
+gem 'unicorn', '~> 4.8.3'
