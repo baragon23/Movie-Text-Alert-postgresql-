@@ -7,6 +7,8 @@ gem 'rails', '4.0.4'
 
 ruby "2.1.2"
 
+gem 'uglifier', '~> 2.5.3'
+
 # Use postgresql as the database for Active Record
 gem 'pg'
 
