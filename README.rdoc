@@ -24,3 +24,40 @@ Things you may want to cover:
 * ...
 
 Twilio phone number 1 856-317-6098
+
+when heroku compiles the assets I believe it does so in alphabetical order
+
+Nick Mrozowski
+	
+
+Oct-2 4:40 PM
+
+try putting your app file before all the other ones that require it
+
+Nick Mrozowski
+	
+
+Oct-2 4:40 PM
+
+alphabetically
+
+Nick Mrozowski
+	
+
+Oct-2 4:40 PM
+
+do you think that could be the issue?
+
+Nick Mrozowski
+	
+
+Oct-2 4:41 PM
+
+or does it compile them in the order listed in the application.js file?
+
+Nick Mrozowski
+	
+
+Oct-2 4:41 PM
+
+you can try changing that order too

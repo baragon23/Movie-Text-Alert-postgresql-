@@ -5,7 +5,7 @@
 			to your list. We will text you on the release day of that movie to the phone 
 			number you provided during Sign Up.</p>
 
-		<div style="border: 1px solid black" class="small-2 columns">
+		<div id="savedMovieList" style="border: 1px solid black" class="small-2 columns">
 			<h3>Your Saved Movie List</h3>
 
 			<ul>
@@ -24,11 +24,10 @@
 				<h4>{{ movie.title }}</h4>
 				<p><img src="{{movie.poster}}" /></p>
 				<p><strong>Release Date:</strong> {{ movie.release_date }}</p>
-				<form ng-submit="addMovie(movie)" name="movieForm">
+				<form ng-submit="addMovie(movie, $index)" name="movieForm">
 					<input ng-model="user_id" type="hidden" ng-init="movie.user_id=<%= current_user.id %>" />
-					<input type="submit" class="button tiny" value="Alert Me" />
+					<input type="submit" class="button tiny" value="Alert Me" name="submit{{ $index }}"   />
 				</form>
-
 			</div>
 		</div>
 
