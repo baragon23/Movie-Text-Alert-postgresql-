@@ -1,47 +1,55 @@
-<nav class="top-bar" data-topbar>
-	<ul class="title-area">
-		<li class="name">
-			<h1><a>Movie Text Alert</a></h1>
-		</li>
-		<li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-	</ul>
-	<section class="top-bar-section">
-		<ul class="right">
-			<li class="has-dropdown">
-				<% if current_user %>
-					<a href="#"><%= current_user.name %></a>
-				<% end %>
-			
-				<ul class="dropdown">
-					<li><%= link_to "Log out", session_path, method: :delete %></li>
-				</ul>
+<div class="sticky">
+	<nav class="top-bar" data-topbar>
+		<ul class="title-area">
+			<li class="name">
+				<h1 id="title"><a>Movie Text Alert</a></h1>
 			</li>
+			<li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
 		</ul>
-	</section>
-</nav>
+		<section class="top-bar-section">
+			<ul class="right">
+				<li class="has-dropdown">
+					<% if current_user %>
+						<a href="#"><%= current_user.name %></a>
+					<% end %>
+				
+					<ul class="dropdown">
+						<li><%= link_to "Log out", session_path, method: :delete %></li>
+					</ul>
+				</li>
+			</ul>
+		</section>
+	</nav>
+</div>
 
 <div ng-controller="MovieController">
-	<div class="row">
-		<h1 class="text-center">Welcome to Movie Text Alert</h1>
-		<p><strong>Instructions:</strong> Click the Alert Me button in order to add a movie
-			to your list. We will text you on the release day of that movie to the phone 
-			number you provided during Sign Up.</p>
-
-		<div id="savedMovieList" style="border: 1px solid black" class="small-2 columns">
-			<h3>Your Saved Movie List</h3>
-
+	<div class="left-content">
+		<div id="savedMovieList">
+			<h2>Your Saved Movie List</h2>
+			<hr>
 			<ul>
 				<li ng-repeat="movie in savedMovies" class="movie-list">
-					{{ movie.title }} <br />
-					{{ movie.release_date }}
-					<a ng-click="destroyMovie( movie )" class="delete">
-						X
-					</a>
+					<div class="savedListing">
+						<div class="movieTitle">	
+							{{ movie.title }} 
+						</div>
+						<div class="movieReleaseDate">
+							{{ movie.release_date }}
+							<a ng-click="destroyMovie( movie )" class="delete">
+								X
+							</a>
+						</div>
+					</div>
 				</li>
 			</ul>
 		</div>
+	</div>
 
-		<div class="small-10 columns">
+	<div class="copyright">
+		Copyright &copy;<%= Time.now.year %> Benjamin Aragon
+	</div>
+
+	<div class="right-content">
 			<div class="movies" ng-repeat="movie in movies">
 				<h4>{{ movie.title }}</h4>
 				<p><img src="{{movie.poster}}" /></p>
@@ -51,9 +59,7 @@
 					<input type="submit" class="button tiny" value="Alert Me" name="submit{{ $index }}"   />
 				</form>
 			</div>
-		</div>
-
 	</div>
 </div>
 
-<%= render 'partials/footer' %>
+<%#= render 'partials/footer' %>

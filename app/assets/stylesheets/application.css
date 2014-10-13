@@ -32,7 +32,7 @@ img {
 	display: inline-block;
 	margin: 0px 10px 10px 0px;
 	width: 220px;
-	padding: 10px;
+	padding: 0px 10px;
 }
 
 .movies:hover {
@@ -42,7 +42,7 @@ img {
 .delete {
 	cursor: pointer;
 	background-color: red;
-	padding: 4px 9px;
+	padding: 1px 6px;
 	border-radius: 3px;
 	color: white;
 }
