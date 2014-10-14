@@ -1,13 +1,26 @@
 
-//jQuery.getScript('youtube_api_call.js');
 
-movieApp.controller('MovieController', [ '$http', '$scope', 'Movie', function($http, $scope, Movie) {
+//jQuery.getScript('../youtube_api.js');
+movieApp.controller('MovieController', [ '$http', '$scope', 'Movie','YoutubeSvc',
+ function($http, $scope, Movie, YoutubeSvc) {
 
 	var apiURL = "http://api.themoviedb.org/3/movie/upcoming?api_key=d0a8b0361581f05b502a995a7cf2e923";
 	var poster_directory = "http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500";
 
 	$scope.movies = [ ];
 	var sorted_movie_array = [ ];
+
+/*	// Called automatically when JavaScript client library is loaded.
+	gapi.client.load('youtube', 'v3', onYouTubeApiLoad);
+
+	// Called automatically when YouTube API interface is loaded (see line 9).
+	function onYouTubeApiLoad() {
+	    gapi.client.setApiKey('AIzaSyCwxiOWzN5SQpc4_85EiSTpAZxJFfMe9uE');
+	    console.log("key loaded");
+
+	    //$http({ method: 'GET', url: apiURL }) gets moved here to make youtube api call
+
+	} // function onYouTubeApiLoad()*/
 
 	//call api and build sorted movie array to display on page
 	$http({ method: 'GET', url: apiURL })
@@ -34,7 +47,11 @@ movieApp.controller('MovieController', [ '$http', '$scope', 'Movie', function($h
 
 				//assign release date
 				movieObj.release_date = data.results[i].release_date;
-				
+
+				//use YoutubeSvc service to pass movie title and get back trailer link
+				//TODO: integrate Angular promise with youtube api call
+				//movieObj.trailer = YoutubeSvc.search(data.results[i].title);
+
 				sorted_movie_array.push(movieObj);
 			}
 
@@ -90,3 +107,4 @@ movieApp.controller('MovieController', [ '$http', '$scope', 'Movie', function($h
 	};
 
 }]); //end controller
+
