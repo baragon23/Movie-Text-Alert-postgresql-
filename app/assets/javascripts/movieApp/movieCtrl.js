@@ -1,7 +1,7 @@
 
 
 //jQuery.getScript('../youtube_api.js');
-movieApp.controller('MovieController', [ '$http', '$scope', 'Movie','YoutubeSvc',
+window.movieApp.controller('MovieController', [ '$http', '$scope', 'Movie','YoutubeSvc',
  function($http, $scope, Movie, YoutubeSvc) {
 
 	var apiURL = "http://api.themoviedb.org/3/movie/upcoming?api_key=d0a8b0361581f05b502a995a7cf2e923";

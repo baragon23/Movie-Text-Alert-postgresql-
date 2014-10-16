@@ -1,4 +1,4 @@
-movieApp.factory('Movie', ['$resource', function($resource){
+window.movieApp.factory('Movie', ['$resource', function($resource){
 	return $resource('/api/movies/:id',
 		{id: '@id'},
 		{update: {method: 'PATCH'}});
