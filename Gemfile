@@ -54,3 +54,5 @@ gem 'foundation-rails', '5.4.3.1'
 gem 'whenever', :require => false
 
 gem 'unicorn', '~> 4.8.3'
+
+gem 'ngannotate-rails'
