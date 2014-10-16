@@ -1,11 +1,8 @@
 source 'https://rubygems.org'
-
-gem 'rails_12factor', group: :production
+ruby "2.1.2"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
-
-ruby "2.1.2"
 
 gem 'uglifier', '~> 2.5.3'
 
@@ -56,3 +53,5 @@ gem 'whenever', :require => false
 gem 'unicorn', '~> 4.8.3'
 
 gem 'ngannotate-rails'
+
+gem 'rails_12factor', group: :production
