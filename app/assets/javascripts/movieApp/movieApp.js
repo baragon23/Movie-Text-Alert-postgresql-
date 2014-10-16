@@ -1,5 +1,5 @@
 
-var movieApp = angular.module('movieApp', ['ngResource']).config(
+window.movieApp = angular.module('movieApp', ['ngResource']).config(
     ['$httpProvider', function($httpProvider) {
     var authToken = angular.element("meta[name=\"csrf-token\"]").attr("content");
     var defaults = $httpProvider.defaults.headers;
